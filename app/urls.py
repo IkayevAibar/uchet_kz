@@ -25,7 +25,7 @@ router.register(r'todo', views.TasksViewSet)
 
 urlpatterns = [
     # path('', include('snippets.urls')),
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('auth/', include('djoser.urls')),

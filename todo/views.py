@@ -1,17 +1,13 @@
-from django.shortcuts import render
+
 from rest_framework import viewsets
-from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions, status
 from rest_framework.decorators import action
 
 from todo.models import Task, User
-from .serializers import UserSerializer, TaskSerializer, TaskExecuteSerializer
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
+from .serializers import UserSerializer, TaskSerializer, TaskExecuteSerializer, TaskRetrieveSerializer
 
-from todo import serializers
+# from todo import serializers
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -30,7 +26,11 @@ class TasksViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticated]
-
+    def get_serializer_class(self):
+            if self.action == 'retrieve' or self.action == 'list':
+                return TaskRetrieveSerializer
+            return TaskSerializer
+    
     @action(detail=True, methods=['Post'], name='execute')
     def execute(self, request, *args, **kwargs):
         task = self.get_object()

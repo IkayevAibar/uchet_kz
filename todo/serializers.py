@@ -11,6 +11,11 @@ class TaskSerializer(serializers.HyperlinkedModelSerializer):
         model = Task
         fields = ['title', 'desc', 'deadline', 'is_done']
 
+class TaskRetrieveSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Task
+        fields = ['id','title', 'desc', 'deadline', 'is_done']
+
 class TaskExecuteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Task
