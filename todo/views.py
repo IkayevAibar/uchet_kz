@@ -29,7 +29,7 @@ class TasksViewSet(viewsets.ModelViewSet):
     """
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
 
     @action(detail=True, methods=['Post'], name='execute')
     def execute(self, request, *args, **kwargs):
