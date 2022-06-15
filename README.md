@@ -1,18 +1,23 @@
 # uchet_kz
 
 ### Не проверял на запускаемость этот проект
-#### Писал на Windows
 
-#### Краткий гуайдлайн для запуска:
 
-##### Активация virtual environment
+#### Краткий гуайдлайн для запуска(на Windows):
+
+ Активация virtual environment
 ```
     .\venv\Scripts\activate
 ```
 
-##### Установить нужные lib для проекта
+ Установить нужные lib для проекта
 ```
     pip install -r requirements.txt
+```
+и попробовать запустить :D
+
+```
+    python manage.py runserver
 ```
 
 1. Использовал Django + DRF для задачи
