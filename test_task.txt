@@ -1,0 +1,27 @@
+Tasks for a backend developer (python)
+Task(s) for a backend developer:
+ToDo Task List application implementation:
+ 1 If using Python, implement in Django + DRF or Flask
+ 2 When using Go, implement without using frameworks (fastHTTP is allowed)
+ 3 The application must contain a user model with email as a login
+ 4 The application consists of one Task model, which contains the following fields:
+ ◦ ID (primary key) - int
+ ◦ Task header - char [100]
+ ◦ Task description - text
+ ◦ Due date - datetime
+ ◦ Completed - boolean.
+ 5 The following handles need to be implemented:
+ ◦ GET /api/todo/ - getting a list of tasks containing the fields ID, Title, Due date, Done
+ ◦ GET /api/todo/<id:int>/ - returns all data on the task with specified ID, all fields are returned
+ ◦ POST /api/todo/ - creating a new task (a new task cannot be executed right away, the Completed field is ignored)
+ ◦ PATCH /api/todo/<id:int>/ - edit the task
+ ◦ DELETE /api/todo/<id:int>/ - edit task
+ ◦ POST /api/todo/<id:int>/execute/ - Handle for marking the task as done (optional)
+ 6 Sending email to user if the task is marked as done or unmarked, sending email has to be organized by queues (for example, celery, dramatiq), use Redis or RabbitMQ as a broker
+ 7 In addition to the CRUD operations described in point 5, it is necessary to implement 3 methods (1 is optional):
+ ◦ Authorization (email, password)
+ ◦ Exit
+ ◦ Password reset, with email (optional)
+
+Expect the result of the problem solution as a link to a repository (GitLab, GitHub, BitBucket)
+
